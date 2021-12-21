@@ -14,7 +14,7 @@ install_kind:
 	else curl --location --output ./kind https://github.com/kubernetes-sigs/kind/releases/download/v0.11.1/kind-linux-amd64 && chmod +x ./kind && ./kind --version; \
 	fi
 create_kind_cluster: install_kind install_kubectl create_docker_registry
-	./kind create cluster --name simple-clock --config ./kind_config.yaml || true && \
+	./kind create cluster --name simple-clock --config ./manifests/kind_config.yaml || true && \
                 kubectl get nodes -o wide
 install_kubectl:
 	bash kubectl.sh
@@ -29,7 +29,7 @@ connect_registry_to_kind_network:
 	docker network connect kind local-registry || true
 
 connect_registry_to_kind: connect_registry_to_kind_network
-	kubectl apply -f ./kind_configmap.yaml
+	kubectl apply -f ./manifests/kind_configmap.yaml
 
 create_kind_cluster_with_registry:
 	$(MAKE) create_kind_cluster && $(MAKE) connect_registry_to_kind
