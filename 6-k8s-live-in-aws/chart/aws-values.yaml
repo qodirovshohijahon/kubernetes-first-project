@@ -1,0 +1,6 @@
+appName: simple-clock-website
+imageName: 32660066814.dkr.ecr.us-west-1.amazonaws.com/simple-clock:latest
+imagePullSecretName: simple-clock
+sourcePort: 80
+serviceName: simple-clock-svc
+replicas: 1

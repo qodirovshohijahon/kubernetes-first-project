@@ -1,0 +1,5 @@
+appName: simple-clock-website
+imageName: localhost:5000/simple-clock:latest
+sourcePort: 80
+serviceName: simple-clock-svc
+replicas: 1

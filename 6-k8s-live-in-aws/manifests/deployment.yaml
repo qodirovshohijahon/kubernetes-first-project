@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: simple-clock
+  name: simple-clock
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-clock
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: simple-clock
+    spec:
+      containers:
+      - image: localhost:5000/simple-clock
+        name: simple-clock
+        resources: {}
+status: {}
