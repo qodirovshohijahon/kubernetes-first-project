@@ -9,7 +9,7 @@ spec:
   - name: http
     port: {{ .Values.sourcePort }}
     protocol: TCP
-    targetPort: {{ .Values.sourcePort }}
+    targetPort: 80
   selector:
     app: {{ .Values.appName }}
   type: ClusterIP
